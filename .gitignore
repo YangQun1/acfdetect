@@ -1,0 +1,15 @@
+# compressed file
+*.rar
+*.zip
+*.7z
+*.tar
+
+# data file
+*.vbb
+*.seq
+*.mat
+
+# data folder
+data
+database
+models

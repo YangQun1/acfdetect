@@ -39,9 +39,9 @@ function [data, bbs] = acfDetect( I, detector, fileName )
 data=[];
 if(nargin<3), fileName=''; end; multiple=iscell(I);
 if(~isempty(fileName) && exist(fileName,'file')), bbs=1; return; end
-if(~multiple), [data bbs]=acfDetectImg(I,detector); else
+if(~multiple), [data, bbs]=acfDetectImg(I,detector); else
   n=length(I); bbs=cell(n,1);
-  parfor i=1:n, bbs{i}=acfDetectImg(I{i},detector); end
+  parfor i=1:n, [data, bbs{i}]=acfDetectImg(I{i},detector); end
 end
 
 % write results to disk if fileName specified
